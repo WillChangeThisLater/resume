@@ -1,0 +1,190 @@
+%-------------------------
+% Resume in Latex
+% Author : Paul Wendt (original template from Sourabh Bajaj)
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumePoint}[1]{
+  \item\small{#1}
+}
+
+% Just in case someone needs a heading that does not need to be in a list
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\Large Paul Wendt}} & Email : \href{mailto:paulwendt567@gmail.com}{paulwendt567@gmail.com}\\
+   & Mobile : \href{tel:+16096356144}{+1-609-635-6144} \\
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Temple University}{Philadelphia, PA}
+      {B.A. in Actuarial Science with minor in Computer Science; Summa Cum Laude}{Aug. 2015 -- May. 2019}
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {SimpliSafe}{Boston, MA}
+      {Data Engineer}{Nov 2021 - Present}
+      \resumeItemListStart
+	\resumePoint
+          {Identified and fixed a bug causing pipelines to run much more frequently than they needed to, reducing overall platform costs by 20%}
+	\resumePoint
+          {Collaborated with the firmware team to extract customer basestation data into the datalake and structure if effectively. This initiative significantly increased the firmware team's debugging capabilities}
+	\resumePoint
+	  {Migrated a significant amount of pipelines from legacy cron scheduling to Dagster, and created generic connectors (SFTP, Google Sheets, etc.) that are used by several analytics teams to pipe data from these sources into our analytics platform}
+	\resumePoint
+          {Implemented a blue-green deployment strategy for managing athena table materialized with CTAS queries. This strategy kept tables materialized by a CTAS queryable even in the event of a CTAS failure}
+      \resumeItemListEnd
+      
+    \resumeSubheading
+      {John Hancock Life Insurance}{Boston, MA}
+      {Actuarial Associate}{May 2019 - Nov 2021}
+      \resumeItemListStart
+	\resumePoint
+          {Successfully re-implemented a complex variable annuity reserving model in Excel, originally designed in Python, within a stringent 6-week regulatory deadline. Leveraged knowledge of parser technology to convert proprietary DSL formulas into python-parseable syntax trees, which were then compiled into Excel formulas. Delivered model to regulators 2 weeks ahead of schedule.}
+	\resumePoint
+          {Wrote a python script for allocating \$3 billion in aggregate variable annuity reserves to individual policies and validated results with unit tests}
+	\resumePoint
+          {Prepared quarterly capital and remittance forecasts and communicated results to senior management}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {John Hancock Life Insurance}{Boston, MA}
+      {Actuarial Intern}{May 2018 - Aug 2018}
+      \resumeItemListStart
+	\resumePoint
+          {Utilized specialized actuarial software to run life insurance sensitivities for a new Universal Life product}
+	\resumePoint
+          {Reviewed financial calculations and VBA code for a new guaranteed issue final expense product}
+	\resumePoint
+          {Assisted pricing team in moving a model from excel to python by building a script to load initial rates}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------ACCOMPLISHMENTS-----------------
+\section{ACCOMPLISHMENTS}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Certified Kubernetes Administrator (2023)}
+    \resumeSubItem{AWS CCP Exam (2022)}
+    \resumeSubItem{Associate of the Society of Actuaries (2021)}
+      {Passed 8 exams encompassing data analytics, financial mathematics, and statistics to achieve the A.S.A credential}
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{PDP-11 Emulator}
+      {Wrote an emulator and assembler for the original PDP 11 instruction set}
+    \resumeSubItem{Markov Chain Visualizer}
+      {Wrote a python program which generates GIFs of markov chains for educational purposes}
+  \resumeSubHeadingListEnd
+
+
+%--------PROGRAMMING SKILLS------------
+\section{Programming Skills}
+  \resumeSubHeadingListStart
+    \item{
+      \textbf{Languages}{: Python, SQL, Bash}
+      \hfill
+      \textbf{Technologies}{: AWS (Athena, S3, Lambda, ECS/EKS, CDK), Dagster, Kubernetes}
+    }
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
