@@ -54,7 +54,7 @@
   \item\small{
     % ifthenelse piece suggested by lm. purpose is to only show the colon for
       % elements that have a second argument (e.g. {accomplishment}{explanation})
-    \textbf{#1}{\ifthenelse{\equal{#2}{}}{}{: #2} \vspace{-2pt}}
+    \textbf{#1}{\ifthenelse{\equal{#2}{}}{}{: #2} \vspace{-5pt}}
   }
 }
 
@@ -90,8 +90,17 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% special command for formatting resume project
+% lm wrote it because I complained the spacing between the project
+% bullets was too great
+\newcommand{\resumeProject}[2]{
+  \resumeSubItem{#1}{#2}
+  \vspace{-10pt} % Decrease the spacing between project bullets
+}
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,7 +111,7 @@
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{{\Large Paul Wendt}} & Email : \href{mailto:paulwendt567@gmail.com}{paulwendt567@gmail.com}\\
-   & Mobile : \href{tel:+16096356144}{+1-609-635-6144} \\
+   & Phone : \href{tel:+16096356144}{+1-609-635-6144} \\
 \end{tabular*}
 
 
@@ -124,13 +133,13 @@
       {Data Engineer}{Nov 2021 - Present}
       \resumeItemListStart
 	\resumePoint
-	  {Guided finance team in migrating, implementing, and testing ETL pipelines which sync terabytes of data from multiple Zuora APIs to our S3 and Athena based datalake as Apache Iceberg tables.}
-	\resumePoint
-          {Sped up CI/CD pipelines up to 73\% by moving action runner infrastructure to EKS, refactoring slow unit and integration tests, and rewriting workflows to run actions in parallel}
-	\resumePoint
 	  {Helped design and implement a DBT-like DSL for ETL pipelines, which is used by 30 analysts across 8 teams. The DSL supports 20+ sources (Kafka, Google Analytics, MySQL), multiple flavors of transformation (DuckDB, Pandas, Python), and a variety of sinks (S3, Athena, sFTP)}
 	\resumePoint
-	  {Supported transition from legacy data platform to Dagster, an open source data orchestrator which now runs over 1100 pipelines. Helped write the CDK stack for deploying Dagster to EKS, rewrote countless legacy pipelines, and created a GraphQL client for programatically interacting with Dagster's frontend}
+	  {Guided finance team in designing, implementing, and testing ETL pipelines which sync business critical subscription data from Zuora to our datalake as Apache Iceberg tables.}
+	\resumePoint
+	  {Supported transition from legacy data platform to Dagster, an open source data orchestrator which now runs over 1100 pipelines. Helped write the CDK stack for deploying Dagster to EKS, moved legacy pipelines to Dagster, and created a GraphQL client for programatically interacting with Dagster's frontend}
+	\resumePoint
+          {Sped up CI/CD pipelines up to 73\% by moving action runner infrastructure to EKS, refactoring slow unit and integration tests, and rewriting workflows to run actions in parallel}
       \resumeItemListEnd
       
     \resumeSubheading
@@ -138,9 +147,9 @@
       {Actuarial Associate}{May 2019 - Nov 2021}
       \resumeItemListStart
 	\resumePoint
-          {Worked with reserving team and state regulators to implement an annuity valuation model. Leveraged python's AST module to write a transpiler converting the model specification to valid Excel formulas, which saved weeks of manual translation and improved model readability for regulators}
+          {Worked with reserving team and state regulators to implement an annuity valuation model. Leveraged python's AST module to write a transpiler to convert the model specification to Excel, saving weeks of manual translation and improving model readability for regulators}
 	\resumePoint
-          {Wrote VBA scripts to automate different reports used in the quarterly annuity valuation process, saving 10 hours every quarter and reducing the risk of human error}
+          {Wrote VBA scripts to automate different reports used in the quarterly annuity valuation process, cutting 10 hours from the quarterly reporting process}
 	\resumePoint
           {Prepared quarterly capital and remittance forecasts and presented results to senior management}
       \resumeItemListEnd
@@ -167,25 +176,27 @@
     \resumeItem{AWS Certified Cloud Practitioner Exam (2022)}{}
     \resumeItem{Associate of the Society of Actuaries (2021)}{Passed 8 exams encompassing data analytics, financial mathematics, probability and statistics}
   \resumeSubHeadingListEnd
+  \vspace{10pt} % The negative vspace in \resumeItem pushes the programming section up. Adjust here to push it backdown
 
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
 
-    \resumeSubItem{go-llm}
+    \resumeProject{go-llm}
       {Wrote a Go-based command line tool for querying LLMs, with options for image input, structured output, etc.}
-    \resumeSubItem{markov}
+    \resumeProject{markov}
       {Wrote a python program which generates GIFs of markov chains via graphviz}
   \resumeSubHeadingListEnd
+  \vspace{10pt} % The negative vspace in \resumeProject pushes the programming section up. Adjust here to push it backdown
 
 
 %--------PROGRAMMING SKILLS------------
-\section{Programming Skills}
+\section{Technologies}
   \resumeSubHeadingListStart
     \item{
       \textbf{Languages}{: Python, Bash, SQL, Go}
       \\
-      \textbf{Technologies}{: AWS (Athena, S3, Lambda, ECS, EKS, CDK), Dagster, Docker, Kubernetes, Github Actions}
+      \textbf{Tech}{: AWS (Athena, S3, Lambda, ECS, EKS, CDK), Dagster, Docker, Kubernetes, Github Actions}
       \\
       \textbf{Tools}{: yq/jq, neovim, mitmproxy, socat, git, tmux, ssh}
     }

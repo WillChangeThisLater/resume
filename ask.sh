@@ -65,7 +65,7 @@ ngrokPID=$!
 # if the curl fails, assume that there was some kind of error starting ngrok and exit
 sleep 3
 tunnelPath=$(curl -s localhost:4040/api/tunnels | jq -r '.tunnels.[].public_url')
-if [ -z tunnelPath ]; then
+if [ -z "$tunnelPath" ]; then
     echo "tunnelPath not set - exiting" >&2
     kill -9 "$pythonPID"
     kill -9 "$ngrokPID"
@@ -88,7 +88,7 @@ imagePath="$tunnelPath/paul_wendt.png" # Windows users be damned
 # if you want to see the prompt, tee out to /dev/stderr
 #
 # cat <<EOF | tee /dev/stderr | lm --imageURLs "$imagePath" --model gpt-4o
-cat <<EOF | lm --imageURLs "$imagePath" --model gpt-4o
+cat <<EOF | lm --imageURLs "$imagePath" --model gpt-4o-mini
 I have the following latex file:
 
 \`\`\`cat paul_wendt.tex
@@ -98,6 +98,11 @@ $(cat paul_wendt.tex)
 I have compiled this latex file to a PDF (see attached)
 
 $prompt
+
+If you're outputting latex code, please only show the section(s) of
+the code relevant to the change(s) you're making. Don't just output
+the whole resume.
+
 EOF
 
 # kill the python and ngrok processes
