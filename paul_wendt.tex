@@ -120,13 +120,13 @@
       {Data Engineer}{Nov 2021 - Present}
       \resumeItemListStart
 	\resumePoint
-          {Identified and fixed a bug causing pipelines to run much more frequently than they needed to, reducing overall platform costs by 20%}
+	  {Guided finance team in migrating, implementing, and testing ETL pipelines which sync terabytes of data from multiple Zuora APIs to our S3 and Athena based datalake as Apache Iceberg tables. }
 	\resumePoint
-          {Collaborated with the firmware team to extract customer basestation data into the datalake and structure if effectively. This initiative significantly increased the firmware team's debugging capabilities}
+          {Sped up CI/CD pipelines up to 73\% by moving action runner infrastructure to EKS, refactoring slow unit and integration tests, and rewriting workflows to run actions in parallel}
 	\resumePoint
-	  {Migrated a significant amount of pipelines from legacy cron scheduling to Dagster, and created generic connectors (SFTP, Google Sheets, etc.) that are used by several analytics teams to pipe data from these sources into our analytics platform}
+	  {Helped design and implement a DBT-like DSL for ETL pipelines, which is used by 30 analysts across 8 teams. The DSL supports 20+ sources (Kafka, Google Analytics, MySQL), multiple flavors of transformation (DuckDB, Pandas, Python), and a variety of sinks (S3, Athena, sFTP)}
 	\resumePoint
-          {Implemented a blue-green deployment strategy for managing athena table materialized with CTAS queries. This strategy kept tables materialized by a CTAS queryable even in the event of a CTAS failure}
+	  {Supported transition from legacy data platform to Dagster, an open source data orchestrator which now runs over 1100 pipelines. Helped write the CDK stack for deploying Dagster to EKS, rewrote countless legacy pipelines, and created a GraphQL client for programatically interacting with Dagster's frontend}
       \resumeItemListEnd
       
     \resumeSubheading
@@ -134,11 +134,11 @@
       {Actuarial Associate}{May 2019 - Nov 2021}
       \resumeItemListStart
 	\resumePoint
-          {Successfully re-implemented a complex variable annuity reserving model in Excel, originally designed in Python, within a stringent 6-week regulatory deadline. Leveraged knowledge of parser technology to convert proprietary DSL formulas into python-parseable syntax trees, which were then compiled into Excel formulas. Delivered model to regulators 2 weeks ahead of schedule.}
+          {Worked with reserving team and state regulators to implement an annuity valuation model. Leveraged python's AST module to write a transpiler converting the model specification to valid Excel formulas, which saved weeks of manual translation and improved model readability for regulators}
 	\resumePoint
-          {Wrote a python script for allocating \$3 billion in aggregate variable annuity reserves to individual policies and validated results with unit tests}
+          {Wrote VBA scripts to automate different reports used in the quarterly annuity valuation process, saving 10 hours every quarter and reducing the risk of human error}
 	\resumePoint
-          {Prepared quarterly capital and remittance forecasts and communicated results to senior management}
+          {Prepared quarterly capital and remittance forecasts and presented results to senior management}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -150,28 +150,28 @@
 	\resumePoint
           {Reviewed financial calculations and VBA code for a new guaranteed issue final expense product}
 	\resumePoint
-          {Assisted pricing team in moving a model from excel to python by building a script to load initial rates}
+          {Assisted pricing team in moving a model from excel to python by building a script to load initial rates from a file into numpy}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
 
 %-----------ACCOMPLISHMENTS-----------------
-\section{ACCOMPLISHMENTS}
+\section{Accomplishments}
   \resumeSubHeadingListStart
     \resumeSubItem{Certified Kubernetes Administrator (2023)}
-    \resumeSubItem{AWS CCP Exam (2022)}
+    \resumeSubItem{AWS Certified Cloud Practitioner Exam (2022)}
     \resumeSubItem{Associate of the Society of Actuaries (2021)}
-      {Passed 8 exams encompassing data analytics, financial mathematics, and statistics to achieve the A.S.A credential}
+      {Passed 8 exams encompassing data analytics, financial mathematics, probability and statistics}
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
-    \resumeSubItem{PDP-11 Emulator}
-      {Wrote an emulator and assembler for the original PDP 11 instruction set}
-    \resumeSubItem{Markov Chain Visualizer}
-      {Wrote a python program which generates GIFs of markov chains for educational purposes}
+    \resumeSubItem{go-llm}
+      {Wrote a Go-based command line tool for querying LLMs, with options for image input, structured output, etc.}
+    \resumeSubItem{markov}
+      {Wrote a python program which generates GIFs of markov chains via graphviz}
   \resumeSubHeadingListEnd
 
 
@@ -179,9 +179,11 @@
 \section{Programming Skills}
   \resumeSubHeadingListStart
     \item{
-      \textbf{Languages}{: Python, SQL, Bash}
+      \textbf{Languages}{: Python, Bash, SQL, Go}
       \hfill
-      \textbf{Technologies}{: AWS (Athena, S3, Lambda, ECS/EKS, CDK), Dagster, Kubernetes}
+      \textbf{Technologies}{: AWS (Athena, S3, Lambda, ECS, EKS, CDK), Dagster, Docker, Kubernetes, Github Actions}
+      \hfill
+      \textbf{Tools}{: yq/jq, neovim, mitmproxy, socat, git, tmux, ssh}
     }
   \resumeSubHeadingListEnd
 
