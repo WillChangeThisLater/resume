@@ -16,6 +16,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
+\usepackage{ifthen}
 \usepackage{tabularx}
 \input{glyphtounicode}
 
@@ -48,9 +49,12 @@
 
 %-------------------------
 % Custom commands
+
 \newcommand{\resumeItem}[2]{
   \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
+    % ifthenelse piece suggested by lm. purpose is to only show the colon for
+      % elements that have a second argument (e.g. {accomplishment}{explanation})
+    \textbf{#1}{\ifthenelse{\equal{#2}{}}{}{: #2} \vspace{-2pt}}
   }
 }
 
@@ -80,7 +84,7 @@
     \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}}
 
 \renewcommand{\labelitemii}{$\circ$}
 
@@ -120,7 +124,7 @@
       {Data Engineer}{Nov 2021 - Present}
       \resumeItemListStart
 	\resumePoint
-	  {Guided finance team in migrating, implementing, and testing ETL pipelines which sync terabytes of data from multiple Zuora APIs to our S3 and Athena based datalake as Apache Iceberg tables. }
+	  {Guided finance team in migrating, implementing, and testing ETL pipelines which sync terabytes of data from multiple Zuora APIs to our S3 and Athena based datalake as Apache Iceberg tables.}
 	\resumePoint
           {Sped up CI/CD pipelines up to 73\% by moving action runner infrastructure to EKS, refactoring slow unit and integration tests, and rewriting workflows to run actions in parallel}
 	\resumePoint
@@ -159,15 +163,15 @@
 %-----------ACCOMPLISHMENTS-----------------
 \section{Accomplishments}
   \resumeSubHeadingListStart
-    \resumeSubItem{Certified Kubernetes Administrator (2023)}
-    \resumeSubItem{AWS Certified Cloud Practitioner Exam (2022)}
-    \resumeSubItem{Associate of the Society of Actuaries (2021)}
-      {Passed 8 exams encompassing data analytics, financial mathematics, probability and statistics}
+    \resumeItem{Certified Kubernetes Administrator (2023)}{}
+    \resumeItem{AWS Certified Cloud Practitioner Exam (2022)}{}
+    \resumeItem{Associate of the Society of Actuaries (2021)}{Passed 8 exams encompassing data analytics, financial mathematics, probability and statistics}
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
+
     \resumeSubItem{go-llm}
       {Wrote a Go-based command line tool for querying LLMs, with options for image input, structured output, etc.}
     \resumeSubItem{markov}
@@ -180,9 +184,9 @@
   \resumeSubHeadingListStart
     \item{
       \textbf{Languages}{: Python, Bash, SQL, Go}
-      \hfill
+      \\
       \textbf{Technologies}{: AWS (Athena, S3, Lambda, ECS, EKS, CDK), Dagster, Docker, Kubernetes, Github Actions}
-      \hfill
+      \\
       \textbf{Tools}{: yq/jq, neovim, mitmproxy, socat, git, tmux, ssh}
     }
   \resumeSubHeadingListEnd
