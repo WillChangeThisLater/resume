@@ -11,7 +11,7 @@ My workflow has basically been:
 
 1. Run `./run.sh` to compile the resume and see what it looks like
 2. Take a look and figure out what I don't like
-3. Run `./ask.sh` to fix my problem. For instance, if I didn't like
+3. Run `./ask.sh` to fix what I don't like. For instance, if I didn't like
    the spacing between the accomplishment and project sections, I'd
    probably write
 
